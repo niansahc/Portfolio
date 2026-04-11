@@ -27,7 +27,7 @@ function ProjectCards(props) {
         {/* if a card doesn't have a link yet (wip projects), just skip the button */}
         {props.link && isExternal && (
           <a
-            className="btn btn_primary"
+            className="btn btn-primary"
             href={props.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -36,7 +36,7 @@ function ProjectCards(props) {
           </a>
         )}
         {props.link && !isExternal && (
-          <Link className="btn btn_primary" to={props.link}>
+          <Link className="btn btn-primary" to={props.link}>
             {buttonLabel}
           </Link>
         )}
