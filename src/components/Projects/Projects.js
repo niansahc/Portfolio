@@ -6,7 +6,7 @@ import colour from '../../Assets/Projects/colour-moods.png';
 import portfolio from '../../Assets/Projects/portfolio.png';
 import hubert from '../../Assets/Projects/hubert-octopus.png';
 import ball from '../../Assets/Projects/self-care-8-ball.png';
-;
+import ember from '../../Assets/Projects/ember-2.png';
 
 function Projects() {
   return (
@@ -22,11 +22,23 @@ function Projects() {
         <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
           <Col md={4} className='project-card'>
             <ProjectCard
+              imgPath={ember}
+              isBlog={false}
+              title='Ember-2'
+              description="Ember-2 is a local-first personal intelligence system I'm building. She remembers, reflects, and retrieves with intent, instead of just generating tokens.
+              Built on Python and FastAPI with append-only memory, vector retrieval, and a constitutional review layer for response governance.
+              Runs locally on your own machine with an installer for Windows, Mac, and Linux."
+              link='https://github.com/niansahc/ember-2'
+            />
+          </Col>
+
+          {/* colour moods is still wip so no link until I get it hosted */}
+          <Col md={4} className='project-card'>
+            <ProjectCard
               imgPath={colour}
               isBlog={false}
               title='Colour Moods'
               description='This was my first React.js project. Each colour is My goal is to load in multiple pallets and create a mood-ring site that offers self-care suggestions based upon the colours. It is not there yet!'
-              link='http://localhost:8080/'
             />
           </Col>
 
@@ -35,10 +47,10 @@ function Projects() {
               imgPath={portfolio}
               isBlog={false}
               title='Level-Up-Portfolio'
-              description="This website has been an adventure in React.js, Bootstrap, breaking things, and using Google. 
+              description="This website has been an adventure in React.js, Bootstrap, breaking things, and using Google.
               I absolutely forked someone else's GitHub and used Node.js to install the foundation. I learn best by taking things apart
               and putting them back together again.   "
-              link='http://localhost:3000/'
+              link='https://github.com/niansahc/Level-Up-Portfolio'
             />
           </Col>
 
@@ -52,18 +64,18 @@ function Projects() {
               link='/self-care-8-ball'
             />
           </Col>
+          {/* hubert lives on the home page, he's not really a standalone project, no link needed */}
           <Col md={6} className='project-card'>
             <ProjectCard
               imgPath={hubert}
               isBlog={false}
               title='Hubert Octopus'
               description="When I started working on this portfolio site, I knew I wanted an animated feature. I'm fascinated by the digital artists and developers
-              who create complex works of art with just CSS and HTML. I wanted to do more than just move some circles around. 
+              who create complex works of art with just CSS and HTML. I wanted to do more than just move some circles around.
               I finally came across an octopus idea on CodePen and Hubert was born. Finding tutorials and examples of what I want to create is easy.
               The challenge for me is in learning the individual elements so I understand what's happening and why. Then I can make it my own.
               Hubert is a softer, fancier octopus than his inspiration. His arms were challenging. Because one of his arms is just a drop shadow,
               I couldn't figure out how to apply an image background. So, I changed my design to alternate his arm appearance. That took some trial and error with my CSS."
-              link='http://localhost:3000/'
             />
           </Col>
         </Row>
