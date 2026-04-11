@@ -32,13 +32,13 @@ function Projects() {
             />
           </Col>
 
-          {/* colour moods is still wip so no link until I get it hosted */}
           <Col md={4} className='project-card'>
             <ProjectCard
               imgPath={colour}
               isBlog={false}
               title='Colour Moods'
-              description='This was my first React.js project. Each colour is My goal is to load in multiple pallets and create a mood-ring site that offers self-care suggestions based upon the colours. It is not there yet!'
+              description='A small mood ring built out of colour palettes. Pick a palette, click a colour, and the page tells you what mood it carries plus a small self-care nudge to try. Started as my first React project in 2022 and finally finished into something with a point.'
+              link='https://niansahc.github.io/colour-moods/'
             />
           </Col>
 
