@@ -7,12 +7,12 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Developer",
-          "Life-Long Learner",
-          "Problem-Solver",
-          "Technology Explorer",
-          "Engineer",
-          "Thought Leader",
+          "AI Ethics & Governance",
+          "Human-Centered Systems",
+          "Builder of Thoughtful Tech",
+          "Conservationist. Humanist. Engineer.",
+          "I ask 'should we' not just 'can we'",
+          "Making Tech More Human",
         ],
         autoStart: true,
         loop: true,

@@ -16,25 +16,24 @@ function Home2() {
             <h1 style={{ fontSize: "2.6em" }}>
               WHAT <span className="orange"> EXCITES </span> ME
             </h1>
-            <p className="home-about-body">
-             I'm passionate about user experience, web accessibility, functional design, 
-             and what makes things "tick." I love that there is no singular way to
-             create/solve/do when it comes to technology.  
-              <br />
-              <br />This site is an experiment using:
-              <i>
-                <b className="orange"> Node.js, React.js, HTML, JavaScript/JSX, and CSS.</b>
-              </i>
-              <br />
-              <br />
-              I'm learning
-              <i>
-                <b className="orange"> ARIA (Accessible Rich Internet Applications) Markup</b>
-              </i> to improve my accessibility chops. This site is not fully accessible... yet. 
-              <br />
-              <br />
-          
-            </p>
+            <div className="home-about-body">
+              <p>
+                I care about what technology does to people. Not abstractly.
+                Specifically. Who gets access. Who gets harmed. What gets
+                quietly optimized away.
+              </p>
+              <p>
+                I'm drawn to systems that are honest about their limits.
+                Interfaces that don't punish users for existing. Tools built
+                with the assumption that the person on the other end deserves
+                consideration.
+              </p>
+              <p>
+                This site runs on React. Hubert is CSS. Ember-2 is something
+                I'm building because I think local-first, human-centered AI is
+                worth doing even when it's harder than the alternative.
+              </p>
+            </div>
           </Col>
           <Col md={1} className="myAnimation">
                       
