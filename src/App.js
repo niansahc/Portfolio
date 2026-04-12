@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import JavaScriptAppWrapper from './components/Projects/self-care-8-ball/JavaScriptAppWrapper';
 import Ember from './components/Ember/Ember';
+import Privacy from './components/Privacy';
+import Accessibility from './components/Accessibility';
 
 import {
   BrowserRouter as Router,
@@ -45,6 +47,8 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/self-care-8-ball" element={<JavaScriptAppWrapper />} />
           <Route path="/ember-2" element={<Ember />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/accessibility" element={<Accessibility />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         </main>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import {
   AiFillGithub,
 
@@ -18,6 +19,11 @@ function Footer() {
           </Col>
           <Col md='4' className='footer-copywright'>
             <h3>Copyright © {year} niansahc</h3>
+            <p style={{ fontSize: '0.85em', marginTop: '4px' }}>
+              <Link to='/privacy' style={{ color: 'rgba(255,255,255,0.6)' }}>Privacy</Link>
+              {' · '}
+              <Link to='/accessibility' style={{ color: 'rgba(255,255,255,0.6)' }}>Accessibility</Link>
+            </p>
           </Col>
           <Col md='4' className='footer-body'>
             <ul className='footer-icons'>

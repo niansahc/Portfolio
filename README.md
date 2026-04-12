@@ -28,3 +28,11 @@
 
 
 Thanks and acknowledgement to <a href="http://soumya-jit.tech/" target="_blank">soumyajit.tech</a> for the inspiration and the chance to take his work apart and put it back together and make it my own.
+
+## Privacy
+
+No analytics, no cookies, no tracking. Hosted on Netlify. See the privacy page on the live site for details.
+
+## Accessibility
+
+This site targets WCAG 2.1 AA. Tested with axe-core via Playwright on all routes. See the accessibility page on the live site for the full statement.
