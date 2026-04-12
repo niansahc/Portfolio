@@ -1,40 +1,47 @@
 # CLAUDE.md — m-chastain.com Portfolio
 
 ## Project Overview
-Personal portfolio site for M. Chastain Flournoy. React + React-Bootstrap, 
-deployed at m-chastain.com. This is a living site — content and code evolve together.
+Personal portfolio site for M. Chastain Flournoy. React + React-Bootstrap,
+deployed at m-chastain.com. Living site — content and code evolve together.
 
-## Architecture
+## Owner
+M. Chastain Flournoy (they/she). Senior Business Technology Analyst and QA 
+lead. Content authority lives in the Claude chat session, not here.
+
+## Tech Stack
 - React (CRA), React-Bootstrap, React-Router v6
-- Particle background via tsparticles
-- PDF viewer via react-pdf
-- Self-Care 8 Ball embedded as a nested app at /self-care-8-ball
+- tsparticles (particle background)
+- react-pdf (resume viewer)
+- Self-Care 8 Ball nested app at /self-care-8-ball
 
 ## Key Files
-- `src/components/Home/Home.js` — hero section
-- `src/components/Home/Home2.js` — "What Excites Me" + social links
+- `src/components/Home/Home.js` — hero
+- `src/components/Home/Home2.js` — What Excites Me + social links
 - `src/components/Home/Type.js` — typewriter strings
-- `src/components/About/AboutCard.js` — JOURNEY prose card
+- `src/components/About/AboutCard.js` — JOURNEY prose
 - `src/components/About/Techstack.js` — skill icons
+- `src/components/About/Toolstack.js` — tool icons
 - `src/components/Projects/Projects.js` — project cards
-- `src/components/Resume/ResumeNew.js` — resume viewer (PDF link placeholder)
+- `src/components/Resume/ResumeNew.js` — resume viewer (PDF placeholder)
 
-## Content Authority
-Content (copy, tone, wording) is drafted and approved in the Claude chat session.
-Do not rewrite prose — implement exactly what is provided.
-If copy is ambiguous, ask before assuming.
-
-## CC Workflow Conventions
-- Use parallel tool calls for independent file edits (e.g. AboutCard + Type.js 
-  can be done simultaneously — they don't touch each other)
-- Use TodoWrite at session start to track open items
-- Use git hooks (pre-commit) to catch lint errors before they land
-- Batch related changes: content updates to one page = one commit
-- Commit messages: `feat:`, `content:`, `fix:`, `style:` prefixes
+## Content Rules
+- All copy is drafted and approved in Claude chat. Do not rewrite prose.
+- If copy is ambiguous, ask before assuming.
+- Resume PDF link is a placeholder. Do not touch until asset provided.
 
 ## Do Not Touch
-- Hubert the octopus CSS (src/style.css octopus section) — intentional, leave it
-- Any copy not yet approved in Claude chat
-- Resume PDF link is a placeholder — do not touch until asset is provided
-## Open Issues (track in todo)
-- Resume PDF link is a placeholder — do not touch until asset is provided
+- Hubert the octopus CSS — intentional, leave it alone
+- Any unapproved copy
+
+## CC Workflow
+- Parallel tool calls for independent file edits
+- TodoWrite at session start
+- Pre-commit lint hook to catch errors before they land
+- Batch related changes into single commits
+- Commit prefixes: `feat:` `content:` `fix:` `style:`
+
+## Commit Convention
+content: — copy changes
+feat: — new functionality  
+fix: — bug fixes
+style: — css/layout only, no logic changes
