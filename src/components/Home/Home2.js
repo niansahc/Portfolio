@@ -18,20 +18,23 @@ function Home2() {
             </h1>
             <div className="home-about-body">
               <p>
-                I care about what technology does to people. Not abstractly.
-                Specifically. Who gets access. Who gets harmed. What gets
-                quietly optimized away.
+                I'm passionate about user experience and accessibility. A
+                system that excludes people by default isn't a neutral choice.
               </p>
               <p>
-                I'm drawn to systems that are honest about their limits.
-                Interfaces that don't punish users for existing. Tools built
-                with the assumption that the person on the other end deserves
-                consideration.
+                I love that technology rarely has one right answer. The same
+                problem built ten different ways tells you ten different things
+                about who built it and what they valued.
               </p>
               <p>
-                This site runs on React. Hubert is CSS. Ember-2 is something
-                I'm building because I think local-first, human-centered AI is
-                worth doing even when it's harder than the alternative.
+                AI is fascinating and frightening in equal measure. I believe
+                in its potential to elevate human creativity and connection. I
+                also know what humans do with powerful tools when there are no
+                guardrails and no accountability.
+              </p>
+              <p>
+                I'm here for the beautiful things we can make while we protect
+                one another, our communities, and our planet.
               </p>
             </div>
           </Col>
