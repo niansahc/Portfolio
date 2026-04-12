@@ -38,7 +38,7 @@ function Projects() {
               imgPath={hubert}
               isBlog={false}
               title='Hubert Octopus'
-              description="I wanted an animated feature for this site built with just CSS and HTML. I found an octopus idea on CodePen and Hubert was born. He's softer and fancier than his inspiration."
+              description="I wanted an animated feature for this site built with just CSS and HTML. I found an octopus idea on CodePen and Hubert was born. The challenge was learning each element so I understood what was happening and why, then making it my own. He's softer and fancier than his inspiration, and his arms were a real adventure in CSS."
             />
           </Col>
 
