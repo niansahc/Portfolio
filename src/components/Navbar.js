@@ -12,6 +12,7 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlineFire,
 } from "react-icons/ai";
 
 
@@ -68,6 +69,16 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/ember-2"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineFire style={{ marginBottom: "2px" }} /> Ember-2
               </Nav.Link>
             </Nav.Item>
 
