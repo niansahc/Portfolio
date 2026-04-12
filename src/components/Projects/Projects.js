@@ -20,7 +20,22 @@ function Projects() {
           Some of my creative adventures with code.
         </p>
         <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
-          <Col md={4} className='project-card'>
+          {/* row 1: hubert (small), ember (featured center), portfolio (small) */}
+          <Col md={3} className='project-card'>
+            <ProjectCard
+              imgPath={hubert}
+              isBlog={false}
+              title='Hubert Octopus'
+              description="When I started working on this portfolio site, I knew I wanted an animated feature. I'm fascinated by the digital artists and developers
+              who create complex works of art with just CSS and HTML. I wanted to do more than just move some circles around.
+              I finally came across an octopus idea on CodePen and Hubert was born. Finding tutorials and examples of what I want to create is easy.
+              The challenge for me is in learning the individual elements so I understand what's happening and why. Then I can make it my own.
+              Hubert is a softer, fancier octopus than his inspiration. His arms were challenging. Because one of his arms is just a drop shadow,
+              I couldn't figure out how to apply an image background. So, I changed my design to alternate his arm appearance. That took some trial and error with my CSS."
+            />
+          </Col>
+
+          <Col md={6} className='project-card'>
             <ProjectCard
               imgPath={ember}
               isBlog={false}
@@ -32,17 +47,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className='project-card'>
-            <ProjectCard
-              imgPath={colour}
-              isBlog={false}
-              title='Colour Moods'
-              description='Colour Moods is a mood-ring style React app that offers self-care suggestions based on colour palettes. Still a work in progress.'
-              link='https://niansahc.github.io/colour-moods/'
-            />
-          </Col>
-
-          <Col md={4} className='project-card'>
+          <Col md={3} className='project-card'>
             <ProjectCard
               imgPath={portfolio}
               isBlog={false}
@@ -54,28 +59,25 @@ function Projects() {
             />
           </Col>
 
-           <Col md={4} className='project-card'>
+          {/* row 2: 8 ball and colour moods */}
+          <Col md={4} className='project-card'>
             <ProjectCard
               imgPath={ball}
               isBlog={false}
               title='Self-Care 8 Ball'
-              description='This is a simple React & JavaScript project taking the concept of a magic 8 ball and putting my own spin on it. 
+              description='This is a simple React & JavaScript project taking the concept of a magic 8 ball and putting my own spin on it.
               I wanted a way to explore with JavaScript using a tutorial that I could deconstruct and reimagine.'
               link='/self-care-8-ball'
             />
           </Col>
-          {/* hubert lives on the home page, he's not really a standalone project, no link needed */}
-          <Col md={6} className='project-card'>
+
+          <Col md={4} className='project-card'>
             <ProjectCard
-              imgPath={hubert}
+              imgPath={colour}
               isBlog={false}
-              title='Hubert Octopus'
-              description="When I started working on this portfolio site, I knew I wanted an animated feature. I'm fascinated by the digital artists and developers
-              who create complex works of art with just CSS and HTML. I wanted to do more than just move some circles around.
-              I finally came across an octopus idea on CodePen and Hubert was born. Finding tutorials and examples of what I want to create is easy.
-              The challenge for me is in learning the individual elements so I understand what's happening and why. Then I can make it my own.
-              Hubert is a softer, fancier octopus than his inspiration. His arms were challenging. Because one of his arms is just a drop shadow,
-              I couldn't figure out how to apply an image background. So, I changed my design to alternate his arm appearance. That took some trial and error with my CSS."
+              title='Colour Moods'
+              description='Colour Moods is a mood-ring style React app that offers self-care suggestions based on colour palettes. Still a work in progress.'
+              link='https://niansahc.github.io/colour-moods/'
             />
           </Col>
         </Row>
