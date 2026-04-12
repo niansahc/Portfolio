@@ -11,8 +11,8 @@ function Home() {
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
+          <Row className="align-items-center">
+            <Col md={7} className="home-header" style={{ paddingBottom: 0 }}>
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 WELCOME!{" "}
                 <span className="wave" role="img" aria-label="Waving octopus emoji">
