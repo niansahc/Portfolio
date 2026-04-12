@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
+import emberLogo from "../../Assets/Projects/ember-2.png";
 
 // pulls the first meaningful paragraph from the release body markdown.
 // skips the title line and any "Released:" datestamp at the top.
@@ -53,6 +54,18 @@ function Ember() {
     <Container fluid className="project-section">
       <Particle />
       <Container style={{ paddingTop: "100px", paddingBottom: "50px" }}>
+        <img
+          src={emberLogo}
+          alt="Ember-2 logo"
+          style={{
+            width: "150px",
+            height: "150px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            marginBottom: "20px",
+            border: "2px solid rgba(255,255,255,0.15)",
+          }}
+        />
         <h1 className="project-heading">
           <strong className="orange">Ember-2</strong>
         </h1>
@@ -80,7 +93,7 @@ function Ember() {
               Source on GitHub
             </a>
             <a
-              href="https://github.com/niansahc/ember-2-installer/releases"
+              href="https://github.com/niansahc/ember-2-installer/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
