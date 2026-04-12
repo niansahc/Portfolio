@@ -88,26 +88,26 @@ function Ember() {
           </p>
           <p style={{ paddingBottom: "1.2em" }}>
             Ember-2 is built on a different assumption. She is a{" "}
-            <strong>local-first personal intelligence system</strong> designed
+            <strong className="orange">local-first personal intelligence system</strong> designed
             for long-term, single-user deployment. She runs on your own
             machine. She accumulates memory with intent. She keeps your data
             yours.
           </p>
           <p style={{ paddingBottom: "1.2em" }}>
             The architecture reflects a set of positions.{" "}
-            <strong>Append-only memory</strong> means nothing is quietly
-            rewritten. <strong>Vector retrieval</strong> means she finds what's
+            <strong className="orange">Append-only memory</strong> means nothing is quietly
+            rewritten. <strong className="orange">Vector retrieval</strong> means she finds what's
             relevant rather than what's recent. A{" "}
-            <strong>constitutional review layer</strong> means her responses are
+            <strong className="orange">constitutional review layer</strong> means her responses are
             evaluated against a defined set of values before they reach you,
             not as a filter, but as a governance mechanism built into how she
             thinks.
           </p>
           <p style={{ paddingBottom: "1.2em" }}>
             Persistent personal AI creates failure modes that stateless systems
-            never encounter: <strong>enmeshment</strong>,{" "}
-            <strong>sycophancy loops</strong>,{" "}
-            <strong>parasocial attachment</strong>. These aren't edge cases.
+            never encounter: <strong className="orange">enmeshment</strong>,{" "}
+            <strong className="orange">sycophancy loops</strong>,{" "}
+            <strong className="orange">parasocial attachment</strong>. These aren't edge cases.
             They're architectural risks that deserve architectural answers.
           </p>
           <p>
