@@ -31,7 +31,7 @@ function About() {
             style={{ paddingTop: "40px", paddingBottom: "50px" }}
             className="about-img"
           >
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <img src={laptopImg} alt="Niansahc octopus badge, Do Good Be Merry" className="img-fluid" />
           </Col>
         </Row>
         <h1 className="project-heading">

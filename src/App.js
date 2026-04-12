@@ -36,6 +36,7 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <ScrollToTop />
+        <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project" element={<Projects />} />
@@ -44,6 +45,7 @@ function App() {
           <Route path="/self-care-8-ball" element={<JavaScriptAppWrapper />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        </main>
         <Footer />
       </div>
     </Router>

@@ -41,7 +41,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
+          <img src={logo} className="img-fluid logo" alt="Niansahc octopus logo" />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -93,6 +93,7 @@ function NavBar() {
                 href="https://github.com/niansahc/Level-Up-Portfolio"
                 target="_blank"
                 className="fork-btn-inner"
+                aria-label="Fork and star on GitHub"
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
                 <AiFillStar style={{ fontSize: "1.1em" }} />

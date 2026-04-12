@@ -40,13 +40,13 @@ function Home2() {
           </Col>
           <Col md={1} className="myAnimation">
                       
-              <div class="octopus" alt="animated octopus named Hubert">
-                    <div class="leg-1"></div>
-                    <div class="head-shape"></div>
-                    <div class="octopus-head">
-                    <div class="eyes"></div>
-                    <div class="blush"></div>
-                    <div class="mouth"></div>
+              <div className="octopus" role="img" aria-label="Animated octopus named Hubert">
+                    <div className="leg-1"></div>
+                    <div className="head-shape"></div>
+                    <div className="octopus-head">
+                    <div className="eyes"></div>
+                    <div className="blush"></div>
+                    <div className="mouth"></div>
                 </div>
     </div>
                       </Col>
@@ -61,17 +61,19 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="GitHub profile"
                 >
                   <AiFillGithub />
                 </a>
                 </li>
-      
+
               <li className="social-icons">
                 <a
                   href="https://www.linkedin.com/in/mchastainflournoy/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="LinkedIn profile"
                 >
                   <FaLinkedinIn />
                 </a>

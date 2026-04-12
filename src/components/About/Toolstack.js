@@ -15,34 +15,34 @@ function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
       <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode title="VS Code" />
+        <span aria-label="VS Code" title="VS Code"><SiVisualstudiocode aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiAudacity title="Audacity" />
+        <span aria-label="Audacity" title="Audacity"><SiAudacity aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiCodepen title="CodePen" />
+        <span aria-label="CodePen" title="CodePen"><DiCodepen aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiDocker title="Docker" />
+        <span aria-label="Docker" title="Docker"><DiDocker aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiMysql title="MySQL" />
+        <span aria-label="MySQL" title="MySQL"><DiMysql aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiSqlite title="SQLite" />
+        <span aria-label="SQLite" title="SQLite"><SiSqlite aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiGithub title="GitHub" />
+        <span aria-label="GitHub" title="GitHub"><SiGithub aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiGooglechrome title="Chrome DevTools" />
+        <span aria-label="Chrome DevTools" title="Chrome DevTools"><SiGooglechrome aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiCanva title="Canva" />
+        <span aria-label="Canva" title="Canva"><SiCanva aria-hidden="true" /></span>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiJira title="Jira" />
+        <span aria-label="Jira" title="Jira"><SiJira aria-hidden="true" /></span>
       </Col>
     </Row>
   );

@@ -59,16 +59,16 @@ const answer = possibleAnswers[randomIndex];
     <div className="App">
       <h1>How are you feeling?</h1>
       <p className="info">I'll tell you how you can be kind to yourself!</p>
-      <input type="text" className="question" value={userInput} onChange={handleChange} />
+      <input type="text" className="question" value={userInput} onChange={handleChange} aria-label="Type how you are feeling" />
       <div className="eight-ball">
       
 
  
-        <div className="content" onClick={handleClick}>
+        <button type="button" className="content" onClick={handleClick} aria-label="Shake the 8 ball for a self-care suggestion">
         {error ? <p className="error">{error}</p> :
           answer ? <p className="answer">{answer}</p> : <p className="eight">8</p>}
-          
-        </div>
+
+        </button>
       </div>
     </div>
   );

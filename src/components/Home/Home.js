@@ -15,7 +15,7 @@ function Home() {
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 WELCOME!{" "}
-                <span className="wave" role="img" aria-labelledby="octopus wave">
+                <span className="wave" role="img" aria-label="Waving octopus emoji">
                 🐙
                 </span>
               </h1>
@@ -37,7 +37,7 @@ function Home() {
               
               <img
                  src={homeLogo}
-                alt="home pic"
+                alt="Illustrated portrait of M. Chastain Flournoy"
                 className="img-fluid" 
                 style={{ maxHeight: "450px" }} 
               /> 
