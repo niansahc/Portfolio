@@ -53,7 +53,7 @@ function Ember() {
   return (
     <Container fluid className="project-section">
       <Particle />
-      <Container style={{ paddingTop: "100px", paddingBottom: "50px" }}>
+      <Container style={{ paddingTop: "100px", paddingBottom: "50px", position: "relative", zIndex: 1 }}>
         <img
           src={emberLogo}
           alt="Ember-2 logo"
