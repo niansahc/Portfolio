@@ -7,12 +7,16 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "AI Ethics & Governance",
-          "Human-Centered Systems",
-          "Builder of Thoughtful Tech",
-          "Conservationist. Humanist. Engineer.",
-          "I ask 'should we' not just 'can we'",
-          "Making Tech More Human",
+          "Systems Thinker",
+          "Accessibility Advocate",
+          "AI Ethics Researcher",
+          "Trauma-Informed Technologist",
+          "Proudly Neurodivergent",
+          "QA Engineer",
+          "Chaos Witch",
+          "Octopus Enthusiast",
+          "Bug Finder. Question Asker. Trouble Maker.",
+          "Human-Centered by Default",
         ],
         autoStart: true,
         loop: true,
