@@ -36,11 +36,5 @@ If copy is ambiguous, ask before assuming.
 - Hubert the octopus CSS (src/style.css octopus section) — intentional, leave it
 - Any copy not yet approved in Claude chat
 - Resume PDF link is a placeholder — do not touch until asset is provided
-- Colour Moods card broken sentence — fix pending content approval
-
 ## Open Issues (track in todo)
-- #14 AboutCard rewrite (content approved, ready to implement)
-- #14 Type.js typewriter refresh (strings approved, ready to implement)  
-- #14 Home2 "What Excites Me" rewrite (content approved, ready to implement)
 - Resume PDF link is a placeholder — do not touch until asset is provided
-- Colour Moods card has a broken sentence — fix pending content approval
