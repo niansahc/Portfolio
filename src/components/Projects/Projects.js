@@ -20,16 +20,7 @@ function Projects() {
           Some of my creative adventures with code.
         </p>
         <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
-          {/* row 1: hubert and ember featured */}
-          <Col md={4} className='project-card'>
-            <ProjectCard
-              imgPath={hubert}
-              isBlog={false}
-              title='Hubert Octopus'
-              description="I wanted an animated feature for this site built with just CSS and HTML. I found an octopus idea on CodePen and Hubert was born. He's softer and fancier than his inspiration."
-            />
-          </Col>
-
+          {/* row 1: ember featured, hubert beside it */}
           <Col md={8} className='project-card'>
             <ProjectCard
               imgPath={ember}
@@ -39,6 +30,15 @@ function Projects() {
               Built on Python and FastAPI with append-only memory, vector retrieval, and a constitutional review layer for response governance.
               Runs locally on your own machine with an installer for Windows, Mac, and Linux."
               link='/ember-2'
+            />
+          </Col>
+
+          <Col md={4} className='project-card'>
+            <ProjectCard
+              imgPath={hubert}
+              isBlog={false}
+              title='Hubert Octopus'
+              description="I wanted an animated feature for this site built with just CSS and HTML. I found an octopus idea on CodePen and Hubert was born. He's softer and fancier than his inspiration."
             />
           </Col>
 
