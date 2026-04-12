@@ -26,7 +26,7 @@ function Home() {
                 <p>and this is my playground.</p>
               </h2>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div style={{ padding: "20px 0", textAlign: "left" }}>
                 <Type />
               </div>
             </Col>
