@@ -1,24 +1,20 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import {
-  DiCodepen,
-  DiDocker,
-  DiMysql,
-  DiStackoverflow,
-} from "react-icons/di";
+import { DiCodepen, DiDocker, DiMysql } from "react-icons/di";
 import {
   SiVisualstudiocode,
   SiAudacity,
+  SiSqlite,
+  SiGithub,
+  SiGooglechrome,
   SiCanva,
-  SiCodecademy,
-
-  
+  SiJira,
 } from "react-icons/si";
 
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col title="Visual Studio Code" xs={4} md={2} className="tech-icons">
+      <Col title="VS Code" xs={4} md={2} className="tech-icons">
         <SiVisualstudiocode />
       </Col>
       <Col title="Audacity" xs={4} md={2} className="tech-icons">
@@ -33,14 +29,20 @@ function Toolstack() {
       <Col title="MySQL" xs={4} md={2} className="tech-icons">
         <DiMysql />
       </Col>
-      <Col title="Stack Overflow" xs={4} md={2} className="tech-icons">
-        <DiStackoverflow />
+      <Col title="SQLite" xs={4} md={2} className="tech-icons">
+        <SiSqlite />
+      </Col>
+      <Col title="GitHub" xs={4} md={2} className="tech-icons">
+        <SiGithub />
+      </Col>
+      <Col title="Chrome DevTools" xs={4} md={2} className="tech-icons">
+        <SiGooglechrome />
       </Col>
       <Col title="Canva" xs={4} md={2} className="tech-icons">
         <SiCanva />
       </Col>
-      <Col title="Codecademy" xs={4} md={2} className="tech-icons">
-        <SiCodecademy />
+      <Col title="Jira" xs={4} md={2} className="tech-icons">
+        <SiJira />
       </Col>
     </Row>
   );
