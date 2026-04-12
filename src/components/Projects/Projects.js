@@ -28,7 +28,7 @@ function Projects() {
               description="Ember-2 is a local-first personal intelligence system I'm building. She remembers, reflects, and retrieves with intent, instead of just generating tokens.
               Built on Python and FastAPI with append-only memory, vector retrieval, and a constitutional review layer for response governance.
               Runs locally on your own machine with an installer for Windows, Mac, and Linux."
-              link='https://github.com/niansahc/ember-2'
+              link='/ember-2'
             />
           </Col>
 
@@ -37,7 +37,7 @@ function Projects() {
               imgPath={colour}
               isBlog={false}
               title='Colour Moods'
-              description='A small mood ring built out of colour palettes. Pick a palette, click a colour, and the page tells you what mood it carries plus a small self-care nudge to try. Started as my first React project in 2022 and finally finished into something with a point.'
+              description='Colour Moods is a mood-ring style React app that offers self-care suggestions based on colour palettes. Still a work in progress.'
               link='https://niansahc.github.io/colour-moods/'
             />
           </Col>

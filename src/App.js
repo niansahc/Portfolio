@@ -7,6 +7,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import JavaScriptAppWrapper from './components/Projects/self-care-8-ball/JavaScriptAppWrapper';
+import Ember from './components/Ember/Ember';
 
 import {
   BrowserRouter as Router,
@@ -43,6 +44,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/self-care-8-ball" element={<JavaScriptAppWrapper />} />
+          <Route path="/ember-2" element={<Ember />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         </main>
