@@ -21,7 +21,7 @@ function Projects() {
         </p>
         <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
           {/* row 1: ember featured, hubert beside it */}
-          <Col md={8} className='project-card'>
+          <Col md={6} className='project-card'>
             <ProjectCard
               imgPath={ember}
               isBlog={false}
@@ -33,7 +33,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className='project-card'>
+          <Col md={6} className='project-card'>
             <ProjectCard
               imgPath={hubert}
               isBlog={false}
