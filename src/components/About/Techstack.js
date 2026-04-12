@@ -21,44 +21,44 @@ import {
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col title="JavaScript" xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiJavascript1 title="JavaScript" />
       </Col>
-      <Col title="HTML/CSS" xs={4} md={2} className="tech-icons">
-        <DiHtml5 />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiHtml5 title="HTML/CSS" />
       </Col>
-      <Col title="TypeScript" xs={4} md={2} className="tech-icons">
-        <SiTypescript />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiTypescript title="TypeScript" />
       </Col>
-      <Col title="Node" xs={4} md={2} className="tech-icons">
-        <DiNodejs />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiNodejs title="Node" />
       </Col>
-      <Col title="React" xs={4} md={2} className="tech-icons">
-        <DiReact />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiReact title="React" />
       </Col>
-      <Col title="Python" xs={4} md={2} className="tech-icons">
-        <DiPython />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiPython title="Python" />
       </Col>
-      <Col title="C#" xs={4} md={2} className="tech-icons">
-        <SiCsharp />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiCsharp title="C#" />
       </Col>
-      <Col title="FastAPI" xs={4} md={2} className="tech-icons">
-        <SiFastapi />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiFastapi title="FastAPI" />
       </Col>
-      <Col title="Git" xs={4} md={2} className="tech-icons">
-        <DiGit />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiGit title="Git" />
       </Col>
-      <Col title="Google Analytics" xs={4} md={2} className="tech-icons">
-        <DiGoogleAnalytics />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiGoogleAnalytics title="Google Analytics" />
       </Col>
-      <Col title="Photoshop" xs={4} md={2} className="tech-icons">
-        <DiPhotoshop />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiPhotoshop title="Photoshop" />
       </Col>
-      <Col title="SASS" xs={4} md={2} className="tech-icons">
-        <DiSass />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiSass title="SASS" />
       </Col>
-      <Col title="WordPress" xs={4} md={2} className="tech-icons">
-        <DiWordpress />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiWordpress title="WordPress" />
       </Col>
     </Row>
   );

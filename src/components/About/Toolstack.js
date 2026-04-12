@@ -14,35 +14,35 @@ import {
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col title="VS Code" xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiVisualstudiocode title="VS Code" />
       </Col>
-      <Col title="Audacity" xs={4} md={2} className="tech-icons">
-        <SiAudacity />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiAudacity title="Audacity" />
       </Col>
-      <Col title="CodePen" xs={4} md={2} className="tech-icons">
-        <DiCodepen />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiCodepen title="CodePen" />
       </Col>
-      <Col title="Docker" xs={4} md={2} className="tech-icons">
-        <DiDocker />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiDocker title="Docker" />
       </Col>
-      <Col title="MySQL" xs={4} md={2} className="tech-icons">
-        <DiMysql />
+      <Col xs={4} md={2} className="tech-icons">
+        <DiMysql title="MySQL" />
       </Col>
-      <Col title="SQLite" xs={4} md={2} className="tech-icons">
-        <SiSqlite />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiSqlite title="SQLite" />
       </Col>
-      <Col title="GitHub" xs={4} md={2} className="tech-icons">
-        <SiGithub />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiGithub title="GitHub" />
       </Col>
-      <Col title="Chrome DevTools" xs={4} md={2} className="tech-icons">
-        <SiGooglechrome />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiGooglechrome title="Chrome DevTools" />
       </Col>
-      <Col title="Canva" xs={4} md={2} className="tech-icons">
-        <SiCanva />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiCanva title="Canva" />
       </Col>
-      <Col title="Jira" xs={4} md={2} className="tech-icons">
-        <SiJira />
+      <Col xs={4} md={2} className="tech-icons">
+        <SiJira title="Jira" />
       </Col>
     </Row>
   );
