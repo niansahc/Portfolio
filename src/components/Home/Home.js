@@ -26,21 +26,18 @@ function Home() {
                 <p>and this is my playground.</p>
               </h2>
 
-              <div style={{ padding: "20px 0", textAlign: "left" }}>
-                <Type />
-              </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
-              
-              
-              
+            <Col md={5} style={{ paddingBottom: 20, textAlign: "center" }}>
               <img
                  src={homeLogo}
                 alt="Illustrated portrait of M. Chastain Flournoy"
-                className="img-fluid" 
-                style={{ maxHeight: "450px" }} 
-              /> 
+                className="img-fluid"
+                style={{ maxHeight: "450px" }}
+              />
+              <div style={{ paddingTop: "16px" }}>
+                <Type />
+              </div>
             </Col>
           </Row>
         </Container>
