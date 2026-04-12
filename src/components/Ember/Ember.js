@@ -110,7 +110,7 @@ function Ember() {
             <strong className="orange">parasocial attachment</strong>. These aren't edge cases.
             They're architectural risks that deserve architectural answers.
           </p>
-          <p>
+          <p style={{ textAlign: "center", fontSize: "1.3em", fontWeight: 600 }}>
             She is a technical project and a position about what AI systems owe
             the people who use them.
           </p>
