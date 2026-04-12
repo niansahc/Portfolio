@@ -196,9 +196,12 @@ function Ember() {
                 style={{
                   color: "var(--imp-text-color)",
                   fontSize: "0.9em",
+                  textDecoration: "underline",
+                  display: "inline-block",
+                  padding: "4px 0",
                 }}
               >
-                Full release notes
+                Full release notes →
               </a>
             </div>
           ))}
