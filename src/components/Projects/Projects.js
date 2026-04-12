@@ -20,22 +20,17 @@ function Projects() {
           Some of my creative adventures with code.
         </p>
         <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
-          {/* row 1: hubert (small), ember (featured center), portfolio (small) */}
-          <Col md={3} className='project-card'>
+          {/* row 1: hubert and ember featured */}
+          <Col md={4} className='project-card'>
             <ProjectCard
               imgPath={hubert}
               isBlog={false}
               title='Hubert Octopus'
-              description="When I started working on this portfolio site, I knew I wanted an animated feature. I'm fascinated by the digital artists and developers
-              who create complex works of art with just CSS and HTML. I wanted to do more than just move some circles around.
-              I finally came across an octopus idea on CodePen and Hubert was born. Finding tutorials and examples of what I want to create is easy.
-              The challenge for me is in learning the individual elements so I understand what's happening and why. Then I can make it my own.
-              Hubert is a softer, fancier octopus than his inspiration. His arms were challenging. Because one of his arms is just a drop shadow,
-              I couldn't figure out how to apply an image background. So, I changed my design to alternate his arm appearance. That took some trial and error with my CSS."
+              description="I wanted an animated feature for this site built with just CSS and HTML. I found an octopus idea on CodePen and Hubert was born. He's softer and fancier than his inspiration."
             />
           </Col>
 
-          <Col md={6} className='project-card'>
+          <Col md={8} className='project-card'>
             <ProjectCard
               imgPath={ember}
               isBlog={false}
@@ -47,7 +42,8 @@ function Projects() {
             />
           </Col>
 
-          <Col md={3} className='project-card'>
+          {/* row 2: portfolio, 8 ball, colour moods */}
+          <Col md={4} className='project-card'>
             <ProjectCard
               imgPath={portfolio}
               isBlog={false}
@@ -59,7 +55,6 @@ function Projects() {
             />
           </Col>
 
-          {/* row 2: 8 ball and colour moods */}
           <Col md={4} className='project-card'>
             <ProjectCard
               imgPath={ball}
