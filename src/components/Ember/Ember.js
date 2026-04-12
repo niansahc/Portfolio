@@ -57,14 +57,7 @@ function Ember() {
         <img
           src={emberLogo}
           alt="Ember-2 logo"
-          style={{
-            width: "150px",
-            height: "150px",
-            borderRadius: "50%",
-            objectFit: "cover",
-            marginBottom: "20px",
-            border: "2px solid rgba(255,255,255,0.15)",
-          }}
+          className="ember-logo"
         />
         <h1 className="project-heading">
           <strong className="orange">Ember-2</strong>

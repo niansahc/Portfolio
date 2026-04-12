@@ -623,6 +623,21 @@ to {
   padding: 0 !important;
 }
 
+.ember-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 0 15px rgba(195, 76, 45, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.ember-logo:hover {
+  box-shadow: 0 0 30px rgba(195, 76, 45, 0.8), 0 0 60px rgba(195, 76, 45, 0.3);
+}
+
 .blockquote-footer {
   color: #ed977f !important;
 }
