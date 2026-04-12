@@ -45,3 +45,9 @@ content: — copy changes
 feat: — new functionality  
 fix: — bug fixes
 style: — css/layout only, no logic changes
+
+## Testing
+- Playwright for UI/e2e tests
+- Test files live in `tests/`
+- Run: `npx playwright test`
+- Install: `npm init playwright@latest`
