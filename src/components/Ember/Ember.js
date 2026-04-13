@@ -144,22 +144,25 @@ function Ember() {
           </Col>
         </Row>
 
-        {installer && downloads["Windows"] && (
-          <div style={{ textAlign: "center", marginBottom: "30px" }}>
-            <div style={{ marginBottom: "8px" }}>
-              <a
-                href={downloads["Windows"]}
-                className="btn btn-primary"
-                style={{ minWidth: "180px" }}
-              >
-                Download for Windows
-              </a>
-            </div>
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8em", margin: 0 }}>
-              {installer.tag_name} · Tested on Windows 11 (64-bit) · macOS and Linux builds coming when testers are available
-            </p>
+        <div style={{ textAlign: "center", marginBottom: "30px" }}>
+          <div style={{ marginBottom: "8px" }}>
+            <a
+              href={
+                downloads["Windows"] ||
+                "https://github.com/niansahc/ember-2-installer/releases/latest"
+              }
+              target={downloads["Windows"] ? undefined : "_blank"}
+              rel={downloads["Windows"] ? undefined : "noopener noreferrer"}
+              className="btn btn-primary"
+              style={{ minWidth: "180px" }}
+            >
+              Download for Windows
+            </a>
           </div>
-        )}
+          <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8em", margin: 0 }}>
+            {installer ? installer.tag_name : ""} · Tested on Windows 11 (64-bit) · macOS and Linux builds coming when testers are available
+          </p>
+        </div>
 
         <h2
           style={{
