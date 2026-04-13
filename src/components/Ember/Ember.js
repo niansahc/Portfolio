@@ -29,19 +29,31 @@ function formatDate(iso) {
   });
 }
 
+// figure out which platform an asset belongs to from the filename
+function getPlatform(name) {
+  if (/\.exe$/i.test(name)) return "Windows";
+  if (/\.dmg$/i.test(name)) return "macOS";
+  if (/\.(AppImage|deb|rpm|snap)$/i.test(name)) return "Linux";
+  return null;
+}
+
 function Ember() {
   const [releases, setReleases] = useState([]);
+  const [installer, setInstaller] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/niansahc/ember-2/releases")
-      .then((res) => {
-        if (!res.ok) throw new Error("GitHub API returned " + res.status);
-        return res.json();
-      })
-      .then((data) => {
-        setReleases(data.slice(0, 5));
+    // fetch backend releases and installer latest in parallel
+    Promise.all([
+      fetch("https://api.github.com/repos/niansahc/ember-2/releases")
+        .then((res) => (res.ok ? res.json() : [])),
+      fetch("https://api.github.com/repos/niansahc/ember-2-installer/releases/latest")
+        .then((res) => (res.ok ? res.json() : null)),
+    ])
+      .then(([releasesData, installerData]) => {
+        setReleases(releasesData.slice(0, 5));
+        setInstaller(installerData);
         setLoading(false);
       })
       .catch((err) => {
@@ -49,6 +61,16 @@ function Ember() {
         setLoading(false);
       });
   }, []);
+
+  // parse installer assets into platform download links
+  const platforms = ["Windows", "macOS", "Linux"];
+  const downloads = {};
+  if (installer && installer.assets) {
+    installer.assets.forEach((asset) => {
+      const platform = getPlatform(asset.name);
+      if (platform) downloads[platform] = asset.browser_download_url;
+    });
+  }
 
   return (
     <Container fluid className="project-section">
@@ -109,27 +131,35 @@ function Ember() {
           </p>
         </div>
 
-        <Row style={{ justifyContent: "center", marginBottom: "30px" }}>
-          <Col md={6} style={{ textAlign: "center" }}>
+        <Row style={{ justifyContent: "center", marginBottom: "16px" }}>
+          <Col style={{ textAlign: "center" }}>
             <a
               href="https://github.com/niansahc/ember-2"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
-              style={{ marginRight: "12px" }}
             >
               Source on GitHub
             </a>
-            <a
-              href="https://github.com/niansahc/ember-2-installer/releases/latest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Download Installer
-            </a>
           </Col>
         </Row>
+
+        {installer && downloads["Windows"] && (
+          <div style={{ textAlign: "center", marginBottom: "30px" }}>
+            <div style={{ marginBottom: "8px" }}>
+              <a
+                href={downloads["Windows"]}
+                className="btn btn-primary"
+                style={{ minWidth: "180px" }}
+              >
+                Download for Windows
+              </a>
+            </div>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8em", margin: 0 }}>
+              {installer.tag_name} · macOS and Linux builds coming when testers are available
+            </p>
+          </div>
+        )}
 
         <h2
           style={{
