@@ -156,7 +156,7 @@ function Ember() {
               </a>
             </div>
             <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.8em", margin: 0 }}>
-              {installer.tag_name} · macOS and Linux builds coming when testers are available
+              {installer.tag_name} · Tested on Windows 11 (64-bit) · macOS and Linux builds coming when testers are available
             </p>
           </div>
         )}
