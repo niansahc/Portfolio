@@ -1,8 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display-font: "EB Garamond", serif;
+}
+
 body {
   margin: 0;
-  font-family: "EB Garamond", serif !important;
+  font-family: var(--ui-font) !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar,
+.btn,
+.project-heading,
+.heading,
+.heading-name,
+.Typewriter__wrapper,
+.Typewriter__cursor {
+  font-family: var(--display-font) !important;
 }

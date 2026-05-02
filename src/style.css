@@ -11,7 +11,7 @@ html {
     rgba(16, 5, 1, 0.863)
   );
 
-  --imp-text-color: #c34c2d;
+  --imp-text-color: #e26144;
   --imp-text-secondary: #febcbc;
 }
 
@@ -560,7 +560,7 @@ to {
 
 .home-social-icons:hover::before {
   transform: scale(1.1);
-  box-shadow: 0 0 15px #c34c2d;
+  box-shadow: 0 0 15px #e26144;
 }
 
 .home-social-icons:hover {
@@ -576,7 +576,7 @@ to {
 }
 
 .icon-colour {
-  color: #c34c2d !important;
+  color: #e26144 !important;
 }
 
 /* --------- */
@@ -592,6 +592,8 @@ to {
   bottom: 0 !important;
   padding-top: 15px !important;
   padding-bottom: 15px !important ;
+  font-family: var(--ui-font);
+  font-size: 0.95rem;
 }
 .footer-copywright {
   text-align: center !important;
@@ -630,12 +632,12 @@ to {
   object-fit: cover;
   margin-bottom: 20px;
   border: none;
-  box-shadow: 0 0 15px rgba(195, 76, 45, 0.4);
+  box-shadow: 0 0 15px rgba(226, 97, 68, 0.4);
   transition: box-shadow 0.3s ease;
 }
 
 .ember-logo:hover {
-  box-shadow: 0 0 30px rgba(195, 76, 45, 0.8), 0 0 60px rgba(195, 76, 45, 0.3);
+  box-shadow: 0 0 30px rgba(226, 97, 68, 0.8), 0 0 60px rgba(226, 97, 68, 0.3);
 }
 
 .blockquote-footer {
@@ -706,10 +708,16 @@ to {
 
 .card-img-top {
   padding: 20px !important;
-  opacity: 0.8 !important;
+  opacity: 0.9 !important;
   border-radius: 10px !important;
   height: 250px !important;
   object-fit: cover !important;
+}
+
+.card-img-top.framed,
+.project-card .card-img-top {
+  border: 1px solid rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 .blog-img {
@@ -854,6 +862,7 @@ to {
 
 .resume .resume-item .resume-title {
   line-height: 18px;
+  font-family: var(--ui-font);
   font-size: 0.9em;
   background: #5234795d;
   padding: 8px 15px;
