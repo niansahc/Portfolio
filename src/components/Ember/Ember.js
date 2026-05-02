@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
+import { CgGitFork } from "react-icons/cg";
+import { AiFillStar } from "react-icons/ai";
 import Particle from "../Particle";
 import emberLogo from "../../Assets/Projects/ember-2.png";
 import meetEmberShot from "../../Assets/Ember/meet-ember.png";
@@ -281,8 +283,10 @@ function Ember() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
+                aria-label="Fork and star Ember-2 on GitHub"
               >
-                Source on GitHub
+                <CgGitFork style={{ fontSize: "1.2em", verticalAlign: "-2px" }} />{" "}
+                <AiFillStar style={{ fontSize: "1.1em", verticalAlign: "-2px" }} />
               </a>
               <a
                 href={
@@ -519,8 +523,10 @@ function Ember() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
+              aria-label="Fork and star Ember-2 on GitHub"
             >
-              Source on GitHub
+              <CgGitFork style={{ fontSize: "1.2em", verticalAlign: "-2px" }} />{" "}
+              <AiFillStar style={{ fontSize: "1.1em", verticalAlign: "-2px" }} />
             </a>
             <a
               href={
