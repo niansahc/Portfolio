@@ -49,3 +49,14 @@ test('self-care-8-ball route has no WCAG 2.1 AA violations', async ({ page }) =>
 
   expect(results.violations).toEqual([]);
 });
+
+test('ember-2 page has no WCAG 2.1 AA violations', async ({ page }) => {
+  await page.goto('/ember-2');
+  await page.waitForTimeout(2000);
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+
+  expect(results.violations).toEqual([]);
+});
