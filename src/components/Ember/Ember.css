@@ -1,28 +1,33 @@
 /* ember-2 museum page */
 
+.ember-page.project-section {
+  padding-top: var(--global-navbar-h, 70px) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .ember-page {
   position: relative;
-  padding: 0;
 }
 
 .ember-section-nav {
   position: sticky;
-  top: 70px;
+  top: var(--global-navbar-h, 70px);
   z-index: 50;
   background: rgba(8, 6, 14, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
   padding: 0;
 }
 
 .ember-section-nav ul {
   list-style: none;
   display: flex;
+  justify-content: center;
   gap: 8px;
-  margin: 0;
+  margin: 0 auto;
   padding: 10px 24px;
   max-width: 1100px;
-  margin: 0 auto;
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
@@ -40,22 +45,30 @@
 .ember-section-nav a {
   display: inline-block;
   padding: 8px 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--imp-text-secondary);
   text-decoration: none;
-  font-size: 0.9em;
-  font-weight: 400;
+  font-family: var(--ui-font);
+  font-size: 0.88em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   border-bottom: 2px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
 }
 
 .ember-section-nav a:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
 }
 
 .ember-section-nav a.active {
   color: var(--imp-text-color);
   border-bottom-color: var(--imp-text-color);
+}
+
+.ember-section-nav a:focus-visible {
+  outline: 2px solid var(--imp-text-color);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .ember-content {
@@ -80,7 +93,7 @@
 }
 
 .ember-section {
-  scroll-margin-top: 130px;
+  scroll-margin-top: calc(var(--global-navbar-h, 70px) + 60px);
   padding: 56px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   color: white;
@@ -93,7 +106,7 @@
 .ember-section-heading {
   color: white;
   font-size: 1.6em;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 24px;
 }
 
@@ -105,7 +118,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: center;
 }
 
 .ember-row-flipped .ember-figure {
@@ -120,6 +133,55 @@
   text-align: left;
 }
 
+.ember-subheading {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--imp-text-secondary);
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.ember-cast {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4em 0;
+}
+
+.ember-cast li {
+  margin-bottom: 0.8em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ember-cast li strong {
+  font-weight: 600;
+  color: white;
+}
+
+.ember-doc-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.ember-doc-link a {
+  font-family: var(--ui-font);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9em;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.ember-doc-link a:hover {
+  color: white;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+
+.ember-doc-link a:focus-visible {
+  outline: 2px solid var(--imp-text-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .ember-copy p {
   font-size: 1.05em;
   line-height: 1.7;
@@ -130,19 +192,25 @@
 .ember-keystone {
   font-weight: 500;
   color: white !important;
+  padding-top: 0.8em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.4em;
 }
 
 .ember-buttons {
   display: flex;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-top: 40px;
   margin-bottom: 12px;
 }
 
 .ember-platform-note {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--ui-font);
+  font-size: 0.65em;
+  text-align: center;
   margin: 0;
 }
 
@@ -156,23 +224,103 @@
 .ember-figure img {
   width: 100%;
   height: auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.7);
   border-radius: 8px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(226, 97, 68, 0.28);
   display: block;
 }
 
+.ember-zoomable {
+  cursor: zoom-in;
+}
+
+.ember-zoomable:focus-visible {
+  outline: 3px solid var(--imp-text-color);
+  outline-offset: 2px;
+}
+
+.ember-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+  animation: ember-lightbox-fade 0.2s ease;
+}
+
+.ember-lightbox img {
+  max-width: min(95vw, 1500px);
+  max-height: 90vh;
+  object-fit: contain;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  cursor: zoom-out;
+}
+
+.ember-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2.4em;
+  line-height: 1;
+  padding: 8px 14px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.ember-lightbox-close:hover {
+  opacity: 1;
+}
+
+.ember-lightbox-close:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--imp-text-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@keyframes ember-lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember-lightbox {
+    animation: none;
+  }
+  .ember-section-nav a {
+    transition: none;
+  }
+}
+
 .ember-figure figcaption {
-  font-style: italic;
-  font-size: 0.85em;
-  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--ui-font);
+  font-size: 0.92em;
+  color: var(--imp-text-secondary);
   text-align: center;
-  margin-top: 6px;
+  margin-top: 10px;
   line-height: 1.5;
 }
 
 .ember-figure-stack {
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .ember-section-pair {
@@ -187,27 +335,21 @@
 }
 
 .ember-pair-caption {
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1em;
-  margin-top: 8px;
+  font-family: var(--ui-font);
+  color: var(--imp-text-secondary);
+  font-size: 0.92em;
+  margin-top: 12px;
 }
 
-.ember-text-link {
-  margin-top: 16px;
-}
-
-.ember-text-link a {
-  color: var(--imp-text-color);
-  text-decoration: none;
-  font-size: 1em;
-}
-
-.ember-text-link a:hover {
-  text-decoration: underline;
+.ember-orange-link:focus-visible,
+.ember-all-releases a:focus-visible {
+  outline: 2px solid var(--imp-text-color);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .ember-orange-link {
+  font-family: var(--ui-font);
   color: var(--imp-text-color);
   font-size: 0.9em;
   text-decoration: underline;
@@ -218,7 +360,7 @@
 }
 
 .ember-release-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 20px 24px;
@@ -241,12 +383,13 @@
 }
 
 .ember-release-head span {
-  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--ui-font);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 0.85em;
 }
 
 .ember-release-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.95em;
   margin: 10px 0 12px;
   line-height: 1.5;
@@ -257,17 +400,13 @@
 }
 
 .ember-all-releases a {
-  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--ui-font);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.9em;
 }
 
 @media (max-width: 720px) {
-  .ember-section-nav {
-    top: 56px;
-  }
-
   .ember-section {
-    scroll-margin-top: 110px;
     padding: 40px 0;
   }
 
@@ -291,6 +430,7 @@
   }
 
   .ember-section-nav ul {
+    justify-content: flex-start;
     padding: 8px 16px;
     gap: 4px;
   }

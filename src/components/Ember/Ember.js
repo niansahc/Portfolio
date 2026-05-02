@@ -59,15 +59,44 @@ function getPlatform(name) {
   return null;
 }
 
+// honor user motion preference. scrollIntoView with explicit behavior
+// overrides CSS scroll-behavior, so we have to check at call time.
+function getScrollBehavior() {
+  if (typeof window === "undefined" || !window.matchMedia) return "smooth";
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+}
+
 const SECTIONS = [
   { id: "meet-ember", label: "Meet Ember" },
   { id: "why-local-first", label: "Why Local-First" },
   { id: "how-she-thinks", label: "How She Thinks" },
   { id: "make-her-yours", label: "Make Her Yours" },
   { id: "who-she-is", label: "Who She Is" },
-  { id: "how-its-built", label: "How It's Built" },
+  { id: "how-shes-built", label: "How She's Built" },
   { id: "releases", label: "Releases" },
 ];
+
+function ZoomImage({ src, alt, onZoom }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="ember-zoomable"
+      onClick={() => onZoom({ src, alt })}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onZoom({ src, alt });
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-label={`Open larger view: ${alt}`}
+    />
+  );
+}
 
 function Ember() {
   const [releases, setReleases] = useState([]);
@@ -75,7 +104,10 @@ function Ember() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeSection, setActiveSection] = useState(SECTIONS[0].id);
+  const [lightbox, setLightbox] = useState(null);
   const navRef = useRef(null);
+  const lightboxCloseRef = useRef(null);
+  const lastFocusedRef = useRef(null);
 
   useEffect(() => {
     Promise.all([
@@ -93,6 +125,23 @@ function Ember() {
         setError(err.message);
         setLoading(false);
       });
+  }, []);
+
+  // measure the global navbar so the section nav sits flush under it
+  // (no visible background strip between the two).
+  useEffect(() => {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+    const setHeight = () => {
+      const h = navbar.getBoundingClientRect().height;
+      document.documentElement.style.setProperty(
+        "--global-navbar-h",
+        `${Math.round(h)}px`
+      );
+    };
+    setHeight();
+    window.addEventListener("resize", setHeight);
+    return () => window.removeEventListener("resize", setHeight);
   }, []);
 
   // active-section detection. picks the section closest to the top of the
@@ -117,25 +166,52 @@ function Ember() {
     return () => observer.disconnect();
   }, []);
 
-  // on mobile, scroll the nav so the active pill stays in view.
+  // close lightbox on escape and lock body scroll while open.
+  // also move focus to the close button on open and return it to
+  // the trigger on close so keyboard users don't lose context.
+  useEffect(() => {
+    if (lightbox) {
+      lastFocusedRef.current = document.activeElement;
+      const handleKey = (e) => {
+        if (e.key === "Escape") setLightbox(null);
+      };
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKey);
+      // focus the close button after the modal renders
+      requestAnimationFrame(() => lightboxCloseRef.current?.focus());
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        window.removeEventListener("keydown", handleKey);
+      };
+    } else if (lastFocusedRef.current) {
+      lastFocusedRef.current.focus();
+      lastFocusedRef.current = null;
+    }
+  }, [lightbox]);
+
+  // on mobile (when the nav overflows), keep the active pill in view by
+  // setting the ul's scrollLeft directly. avoids scrollIntoView walking
+  // up to the document and nudging the page.
   useEffect(() => {
     if (!navRef.current) return;
-    const activeLink = navRef.current.querySelector(
+    const ul = navRef.current.querySelector("ul");
+    if (!ul || ul.scrollWidth <= ul.clientWidth) return;
+    const activeLink = ul.querySelector(
       `a[data-section="${activeSection}"]`
     );
-    if (activeLink) {
-      activeLink.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
+    if (!activeLink) return;
+    const target =
+      activeLink.offsetLeft -
+      ul.clientWidth / 2 +
+      activeLink.offsetWidth / 2;
+    ul.scrollTo({ left: target, behavior: getScrollBehavior() });
   }, [activeSection]);
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: getScrollBehavior(), block: "start" });
   };
 
   const downloads = {};
@@ -150,20 +226,28 @@ function Ember() {
     <Container fluid className="project-section ember-page">
       <Particle />
 
-      <nav className="ember-section-nav" ref={navRef}>
+      <nav
+        className="ember-section-nav"
+        ref={navRef}
+        aria-label="Page sections"
+      >
         <ul>
-          {SECTIONS.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`#${s.id}`}
-                data-section={s.id}
-                className={activeSection === s.id ? "active" : ""}
-                onClick={(e) => handleNavClick(e, s.id)}
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
+          {SECTIONS.map((s) => {
+            const isActive = activeSection === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  data-section={s.id}
+                  className={isActive ? "active" : ""}
+                  aria-current={isActive ? "location" : undefined}
+                  onClick={(e) => handleNavClick(e, s.id)}
+                >
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
 
@@ -177,11 +261,15 @@ function Ember() {
           <div className="ember-copy">
             <h2 className="ember-section-heading">Meet Ember</h2>
             <p>
-              Most AI assistants are built around a single assumption: the
-              conversation ends. You send a query, the system responds, and
-              whatever happened between you disappears. That assumption shapes
-              everything (what gets optimized, what gets ignored, and what kinds
-              of failure are even considered possible).
+              Ember is a personal AI assistant that runs entirely on your own
+              machine. She remembers what you said last week, accumulates
+              context over weeks and months, and gets to know you over time
+              without sending a single byte of your data anywhere.
+            </p>
+            <p>
+              Most AI assistants are built around the assumption that the
+              conversation ends. Ember is built around the assumption that it
+              does not.
             </p>
             <p className="ember-keystone">
               She is a technical project and a position about what AI systems
@@ -215,19 +303,44 @@ function Ember() {
             </p>
           </div>
           <figure className="ember-figure">
-            <img src={meetEmberShot} alt="Ember home screen with greeting 'Coffee first, Chastain?'" />
+            <ZoomImage
+              src={meetEmberShot}
+              alt="Ember home screen with greeting 'Coffee first, Chastain?'"
+              onZoom={setLightbox}
+            />
             <figcaption>
-              "Coffee first, Chastain?" — One of Ember's time-of-day greetings,
+              "Coffee first, Chastain?" One of Ember's time-of-day greetings,
               picked at random.
             </figcaption>
           </figure>
         </section>
 
         <section id="why-local-first" className="ember-section ember-row ember-row-flipped">
-          <figure className="ember-figure ember-figure-stack">
-            <img src={securityShot} alt="Ember security settings: PIN lock, vault, cloud API keys" />
-            <img src={vaultShot} alt="Ember vault settings panel" />
-          </figure>
+          <div className="ember-figure-stack">
+            <figure className="ember-figure">
+              <ZoomImage
+                src={securityShot}
+                alt="Ember security settings: PIN lock, vault, cloud API keys"
+                onZoom={setLightbox}
+              />
+              <figcaption>
+                Security settings. PIN lock, vault location, and any cloud
+                API keys you add (if you want to use a cloud model, the
+                option exists).
+              </figcaption>
+            </figure>
+            <figure className="ember-figure">
+              <ZoomImage
+                src={vaultShot}
+                alt="Ember vault settings panel"
+                onZoom={setLightbox}
+              />
+              <figcaption>
+                Your memory vault. A folder of plain JSON on your machine
+                that you can read.
+              </figcaption>
+            </figure>
+          </div>
           <div className="ember-copy">
             <h2 className="ember-section-heading">Why Local-First</h2>
             <p>
@@ -262,10 +375,30 @@ function Ember() {
               defined set of values before they reach you.
             </p>
           </div>
-          <figure className="ember-figure ember-figure-stack">
-            <img src={featuresShot} alt="Ember feature settings: web search, vision, deviation engine" />
-            <img src={memoryShot} alt="Ember memory settings panel" />
-          </figure>
+          <div className="ember-figure-stack">
+            <figure className="ember-figure">
+              <ZoomImage
+                src={featuresShot}
+                alt="Ember feature settings: web search, vision, deviation engine"
+                onZoom={setLightbox}
+              />
+              <figcaption>
+                Features panel. Web search, vision, deviation engine, and
+                other capabilities you can toggle.
+              </figcaption>
+            </figure>
+            <figure className="ember-figure">
+              <ZoomImage
+                src={memoryShot}
+                alt="Ember memory settings panel"
+                onZoom={setLightbox}
+              />
+              <figcaption>
+                Memory settings. Append-only by design, with retrieval
+                that finds what is relevant.
+              </figcaption>
+            </figure>
+          </div>
         </section>
 
         <section id="make-her-yours" className="ember-section ember-section-pair">
@@ -274,14 +407,23 @@ function Ember() {
           </h2>
           <div className="ember-pair">
             <figure className="ember-figure">
-              <img src={appearanceShot} alt="Ember appearance settings: six themes including Ember, Midnight, Forest, Ocean, Bloom, Custom" />
+              <ZoomImage
+                src={appearanceShot}
+                alt="Ember appearance settings: five themes plus a custom option"
+                onZoom={setLightbox}
+              />
             </figure>
             <figure className="ember-figure">
-              <img src={generalShot} alt="Ember general settings: conversational style options Casual, Balanced, Thoughtful" />
+              <ZoomImage
+                src={generalShot}
+                alt="Ember general settings: conversational style options Casual, Balanced, Thoughtful"
+                onZoom={setLightbox}
+              />
             </figure>
           </div>
           <p className="ember-pair-caption">
-            Six themes. Three conversational styles. Make her yours.
+            Five themes or customize your own. Three conversational styles.
+            Make her yours.
           </p>
         </section>
 
@@ -303,29 +445,103 @@ function Ember() {
             <p>She was built to reduce the cost of asking for help.</p>
           </div>
           <figure className="ember-figure">
-            <img src={aboutPanelShot} alt="Ember About panel" />
+            <ZoomImage
+              src={aboutPanelShot}
+              alt="Ember About panel"
+              onZoom={setLightbox}
+            />
           </figure>
         </section>
 
-        <section id="how-its-built" className="ember-section ember-section-wide">
-          <h2 className="ember-section-heading">How It's Built</h2>
+        <section id="how-shes-built" className="ember-section ember-section-wide ember-copy">
+          <h2 className="ember-section-heading">How She's Built</h2>
           <p>
-            Ember is built by one person using a three-way collaboration:
-            direction, architecture, and implementation handled as separate
-            roles. Every change is read and approved before it ships. Every
-            significant decision is documented before it is built.
+            Ember is built by one person who reads code and reasons about
+            systems but does not write production code every day. The
+            workflow is designed around that. Decisions happen in
+            conversation. Implementation happens in supervised sessions.
+            Every change is reviewed before it ships.
           </p>
+
+          <h3 className="ember-subheading">The Cast</h3>
+          <ul className="ember-cast">
+            <li>
+              <strong>The Architect</strong> (human): designs, decides,
+              approves. Every PR. Every release.
+            </li>
+            <li>
+              <strong>Manager</strong> (claude.ai chat): research, project
+              management, coordination. Drafts plans and prompts.
+            </li>
+            <li>
+              <strong>G, M, Y</strong> (Claude Code instances): build the
+              backend, frontend, and installer. Each in its own repo, each
+              in its own terminal color.
+            </li>
+            <li>
+              <strong>Deep</strong> (claude.ai with extended thinking):
+              literature synthesis before architecture decisions.
+            </li>
+            <li>
+              <strong>The Council</strong> (rotating reviewer personas):
+              five lenses for high-stakes calls: privacy, register,
+              architecture, constraints, test discipline.
+            </li>
+          </ul>
+
+          <h3 className="ember-subheading">Decision Gates</h3>
           <p>
-            The code is open source under AGPL-3.0. The architecture is
-            documented and public.
+            Big work follows a sequence. Research first. Council if the
+            call is high-stakes. Stress-test the approach with grill-me.
+            Plan the build. Then build it. Manager recommends. The
+            Architect decides. Build instances implement.
           </p>
-          <p className="ember-text-link">
+
+          <h3 className="ember-subheading">Testing Discipline</h3>
+          <p>
+            Four tiers of evals run at every release: fast unit and
+            integration tests, manual streaming regression, deterministic
+            eval tools (retrieval, web search, behavioral battery), and
+            Haiku-judged cloud evals at release boundaries. Test count is
+            tracked precisely. Flaky tests are fixed in the release they
+            are found, never carried forward.
+          </p>
+
+          <p>
+            The code is open source under AGPL-3.0. The architecture,
+            decision logs, and the full build philosophy are documented
+            and public.
+          </p>
+
+          <div className="ember-buttons">
             <a
               href="https://github.com/niansahc/ember-2"
               target="_blank"
               rel="noopener noreferrer"
+              className="btn btn-primary"
             >
-              Source on GitHub →
+              Source on GitHub
+            </a>
+            <a
+              href={
+                downloads["Windows"] ||
+                "https://github.com/niansahc/ember-2-installer/releases/latest"
+              }
+              target={downloads["Windows"] ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Download Installer
+            </a>
+          </div>
+
+          <p className="ember-doc-link">
+            <a
+              href="https://github.com/niansahc/ember-2/blob/main/docs/BUILDING_EMBER.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read the full build doc →
             </a>
           </p>
         </section>
@@ -385,6 +601,27 @@ function Ember() {
           )}
         </section>
       </Container>
+
+      {lightbox && (
+        <div
+          className="ember-lightbox"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Enlarged: ${lightbox.alt}`}
+        >
+          <button
+            ref={lightboxCloseRef}
+            type="button"
+            className="ember-lightbox-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close enlarged view"
+          >
+            ×
+          </button>
+          <img src={lightbox.src} alt={lightbox.alt} />
+        </div>
+      )}
     </Container>
   );
 }
