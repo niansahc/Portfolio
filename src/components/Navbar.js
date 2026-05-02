@@ -5,10 +5,8 @@ import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-
 import {
-  AiFillStar,
+  AiFillGithub,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
@@ -101,13 +99,12 @@ function NavBar() {
 
             <Nav.Item className="fork-btn">
               <Button
-                href="https://github.com/niansahc/Level-Up-Portfolio"
+                href="https://github.com/niansahc"
                 target="_blank"
                 className="fork-btn-inner"
-                aria-label="Fork and star on GitHub"
+                aria-label="View my GitHub profile"
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
+                <AiFillGithub style={{ fontSize: "1.4em" }} />
               </Button>
             </Nav.Item>
           </Nav>
